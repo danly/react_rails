@@ -1,0 +1,23 @@
+<div class='navbar'>
+  <% if current_user == nil %>
+    <!-- LOGIN FORM IF NOT LOGGED IN -->
+    <div class='userNav'>
+      <div class='navLink'>
+        <%= link_to "Create Account", new_user_path %>    
+      </div>
+      <div class='navLink'>
+        <%= link_to "Login", login_path %>
+      </div>
+    </div>
+  <% else %>
+    <!-- USER PROFILE IF LOGGED IN -->
+    <div class='userNav'>
+      <div class='navLink'>
+        <%= current_user.username %>
+      </div>
+      <div class='navLink'>
+        <%= link_to "Log Out", logout_path , method: 'delete'  %>
+      </div>
+    </div>
+  <% end %>
+</div>
